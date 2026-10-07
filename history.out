@@ -1,0 +1,54 @@
+    1  history -w
+    2  mkdir -p /root/mephi-linux-security-2026
+    3  cd /root/methi-linux-security-2026
+    4  cd /root/mephi-linux-security-2026
+    5  pwd
+    6  getent passwd user1
+    7  getent group students
+    8  groupadd students
+    9  useradd -m -u 1234 -g students user1
+   10  passwd user1
+   11  chage -M 90 user1
+   12  id user1
+   13  chage -l user1
+   14  stat /home/user1 > /root/mephi-linux-security-2026/stat.out
+   15  find / -type f -perm -4000 2>/dev/null > /root/mephi-linux-security-2026/suid-files.out
+   16  cat /root/mephi-linux-security-2026/suid-files.out
+   17  ps -eo pid,ruid,euid,user,comm,args | awk '$2 != 0 && $3 == 0'
+   18  ps -eo pid,ruid,euid,user,comm,args | awk '$2 != 0 && $3 == 0' > /root/mephi-linux-security-2026/processes.out
+   19  cat /root/mephi-linux-security-2026/processes.out
+   20  cp /usr/bin/cat /home/user1/cat
+   21  chown root:root /home/user1/cat
+   22  ls -l /home/user1/cat
+   23  chmod 4755 /home/user1/cat
+   24  ls -l /home/user1/cat
+   25  stat /home/user1/cat >> /root/mephi-linux-security-2026/stat.out
+   26  su - user1 -c '/usr/bin/cat /etc/shadow'
+   27  su - user1 -c '/home/user1/cat /etc/shadow'
+   28  tail -n 10 /root/mephi-linux-security-2026/stat.out
+   29  cp /usr/bin/chown /home/user1/chown
+   30  chown root:root /home/user1/chown
+   31  chmod 755 /home/user1/chown
+   32  setcap cap_chown+ep /home/user1/chown
+   33  getcap /home/user1/chown
+   34  touch /tmp/rootfile
+   35  chown root:root /tmp/rootfile
+   36  ls -l /tmp/rootfile
+   37  su - user1 -c '/usr/bin/chown user1:students /tmp/rootfile'
+   38  su - user1 -c '/home/user1/chown user1:students /tmp/rootfile'
+   39  ls -l /tmp/rootfile
+   40  stat /home/user1/chown >> /root/mephi-linux-security-2026/stat.out
+   41  getcap /home/user1/chown > /root/mephi-linux-security-2026/getcap.out
+   42  getcap /home/user1/chown
+   43  ls -l /tmp/rootfile
+   44  command -v date
+   45  visudo
+   46  su - user1 -c 'sudo -l'
+   47  su - user1
+   48  cp /etc/passwd /root/mephi-linux-security-2026/passwd
+   49  cp /etc/group /root/mephi-linux-security-2026/group
+   50  cp /etc/sudoers /root/mephi-linux-security-2026/sudoers
+   51  cp /etc/shadow /root/mephi-linux-security-2026/shadow
+   52  cat /root/mephi-linux-security-2026/stat.out
+   53  cat /root/mephi-linux-security-2026/getcap.out
+   54  history > /root/mephi-linux-security-2026/history.out

@@ -1,0 +1,2 @@
+   1087    42     0 root     fusermount3     fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/42/doc
+   1845  1234     0 root     passwd          passwd
